@@ -1,7 +1,9 @@
 # Changelog
 
-## Unreleased
+## 1.1.0 (2026-11-25)
 
+- New `brief` skill: for medium/large or vague requests, looks in the code first, asks at most 3 decisive questions in one round (with a recommended option), then writes a compact brief whose STEPS are split across the agents. Skipped for small or clear requests.
+- Routing policy now triggers the brief step.
 - README is now visual: routing flow, agent cards, install steps and savings at a glance (EN/IT, light/dark). Long text moved to `docs/DETAILS.md`.
 
 ## 1.0.0 (2026-11-25)

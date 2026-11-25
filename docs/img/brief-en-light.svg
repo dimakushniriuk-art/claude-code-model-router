@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" role="img" aria-label="3 · Compact brief → split across agents">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5f6368"/></marker></defs>
+<rect width="900" height="300" rx="16" fill="#ffffff"/>
+<text x="32" y="44" font-size="11" font-weight="600" fill="#5f6368" text-anchor="start">YOUR REQUEST</text>
+<text x="32" y="70" font-size="17" font-weight="600" fill="#191919" text-anchor="start">“make user accounts more secure”</text>
+<rect x="24" y="96" width="276" height="160" rx="16" fill="#f6f7f9" stroke="#d9dce1"/>
+<line x1="302" y1="176" x2="316" y2="176" stroke="#5f6368" stroke-width="2" marker-end="url(#a)"/>
+<rect x="318" y="96" width="276" height="160" rx="16" fill="#f6f7f9" stroke="#d9dce1"/>
+<line x1="596" y1="176" x2="610" y2="176" stroke="#5f6368" stroke-width="2" marker-end="url(#a)"/>
+<rect x="612" y="96" width="276" height="160" rx="16" fill="#f6f7f9" stroke="#d9dce1"/>
+<text x="42" y="126" font-size="14" font-weight="700" fill="#191919" text-anchor="start">1 · Looks in the code first</text>
+<rect x="42" y="146" width="240" height="34" rx="8" fill="#eef0f3"/>
+<text x="54" y="168" font-size="12" font-weight="400" fill="#191919" text-anchor="start" font-family="SFMono-Regular,Menlo,Consolas,monospace">grep password app/</text>
+<text x="42" y="208" font-size="12.5" font-weight="400" fill="#5f6368" text-anchor="start">finds app/users.py, plaintext passwords</text>
+<text x="336" y="126" font-size="12.5" font-weight="700" fill="#191919" text-anchor="start">2 · Asks only what changes the result</text>
+<text x="336" y="154" font-size="13" font-weight="600" fill="#5f6368" text-anchor="start">Scope?</text>
+<rect x="336" y="168" width="240" height="30" rx="8" fill="#ffffff" stroke="#f47230" stroke-width="2"/>
+<text x="346" y="188" font-size="11.5" font-weight="600" fill="#191919" text-anchor="start">Hashing + validation (Recommended)</text>
+<rect x="336" y="206" width="240" height="30" rx="8" fill="#ffffff" stroke="#d9dce1" stroke-width="1"/>
+<text x="346" y="226" font-size="11.5" font-weight="400" fill="#191919" text-anchor="start">Also 2FA and lockout</text>
+<text x="630" y="126" font-size="13" font-weight="700" fill="#191919" text-anchor="start">3 · Compact brief → split across agents</text>
+<text x="630" y="150" font-size="10.5" font-weight="700" fill="#f47230" text-anchor="start" font-family="SFMono-Regular,Menlo,Consolas,monospace">GOAL</text>
+<text x="630" y="163" font-size="12" font-weight="400" fill="#191919" text-anchor="start">hash passwords, validate input</text>
+<text x="630" y="177" font-size="10.5" font-weight="700" fill="#f47230" text-anchor="start" font-family="SFMono-Regular,Menlo,Consolas,monospace">DONE WHEN</text>
+<text x="630" y="190" font-size="12" font-weight="400" fill="#191919" text-anchor="start">tests pass, no plaintext stored</text>
+<text x="630" y="204" font-size="10.5" font-weight="700" fill="#f47230" text-anchor="start" font-family="SFMono-Regular,Menlo,Consolas,monospace">OUT OF SCOPE</text>
+<text x="630" y="217" font-size="12" font-weight="400" fill="#191919" text-anchor="start">2FA, sessions</text>
+<text x="630" y="231" font-size="10.5" font-weight="700" fill="#f47230" text-anchor="start" font-family="SFMono-Regular,Menlo,Consolas,monospace">STEPS</text>
+<text x="630" y="244" font-size="12" font-weight="400" fill="#191919" text-anchor="start">1 coder: users.py + tests</text>
+<text x="32" y="284" font-size="13" font-weight="400" fill="#5f6368" text-anchor="start">A few hundred tokens up front, so the expensive work runs once on the right target</text>
+</svg>

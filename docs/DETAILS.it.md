@@ -20,11 +20,22 @@ Una chat di Claude Code non può cambiare il proprio modello a metà. Però può
 | `model-router:coder` | Sonnet | implementare una modifica ben definita e i suoi test | breve resoconto di cosa è cambiato e cosa è stato verificato |
 | `model-router:architect` | Opus | progettazione, trade-off, piani su più file, bug difficili, sicurezza | una decisione e un piano passo per passo (non modifica mai i file) |
 
-La policy viene iniettata una volta a inizio sessione (e di nuovo dopo `/clear` o una compattazione). È di circa 160 parole, non un promemoria a ogni messaggio. Contiene tre regole:
+La policy viene iniettata una volta a inizio sessione (e di nuovo dopo `/clear` o una compattazione). È di circa 200 parole, non un promemoria a ogni messaggio. Contiene tre regole:
 
 - **I passi piccoli restano nella sessione principale.** Ogni subagent parte da zero, quindi delegare una cosa minima costa più che farla.
 - **Se un agente fallisce si sale di un livello** (reader → coder → architect), invece di riprovare con lo stesso agente.
 - **Brief e risposte restano brevi.** Gli agenti restituiscono conclusioni, non file interi, così il contesto principale resta piccolo.
+
+## La fase brief
+
+Per richieste medie o grandi (più file o più passi) e per quelle vaghe, la sessione principale usa prima la skill `model-router:brief`. Puoi anche chiamarla tu: `/model-router:brief <la tua richiesta>`.
+
+1. **Guarda prima di chiedere.** Due o tre ricerche rapide rispondono a tutto ciò che il codice può dire: framework, convenzioni, comando dei test, posizione dei file.
+2. **Fa al massimo 3 domande, in un solo giro**, e solo se la risposta cambia cosa viene costruito o come si verifica: ambito, comportamento visibile, contratti di dati o API, sicurezza, passi irreversibili. Ogni domanda ha un'opzione consigliata. Stile e nomi li decide e li elenca come ipotesi. In modalità non interattiva non si blocca mai: sceglie le opzioni consigliate e le elenca.
+3. **Scrive un brief di circa 12 righe**: OBIETTIVO, CONTESTO, VINCOLI, FATTO QUANDO, FUORI AMBITO, IPOTESI e PASSI, con ogni passo assegnato a `self`, `reader`, `coder` o `architect`. Lo stesso brief viene passato a ogni agente, così gli agenti non riesplorano.
+4. **Le richieste piccole, chiare o di continuazione la saltano del tutto.** Nei compiti grandi o difficili da annullare, se ci sono ipotesi, chiede "Procedo con questo brief?" nello stesso unico giro.
+
+**Fa davvero risparmiare? I conti onesti.** Un brief costa circa 300–800 token in più e, a volte, un breve giro di domande. Su Sonnet è meno di un centesimo di dollaro. Un tentativo nella direzione sbagliata su un compito medio (esplorare, modificare e testare la cosa sbagliata, poi rifarla) consuma di solito decine di migliaia di token. Quindi il brief si ripaga anche se evita il lavoro rifatto solo in una piccola parte dei compiti medi, e la lista FATTO QUANDO evita anche le funzionalità in più che nessuno ha chiesto. Entrambi gli effetti sono plausibili ma **non ancora misurati**, quindi non sono nel grafico del risparmio. In un test con la richiesta vaga "rendi più sicuri gli account utente", la run con il brief ha elencato le ipotesi e limitato l'ambito (hash + validazione). Quella senza brief ha aggiunto blocco dell'account e una policy password rigida non richiesti. Il costo totale è stato simile (0,15 $ contro 0,12 $) su quel repository minuscolo. Per misurarlo sul tuo lavoro, lancia `extras/measure.sh` con un compito volutamente vago.
 
 ## Installazione
 

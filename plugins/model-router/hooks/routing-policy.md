@@ -1,4 +1,5 @@
 Model routing policy (model-router plugin). Delegate subtasks to the cheapest agent that keeps quality:
+- Medium/large or vague request (several files or steps)? First use the model-router:brief skill: at most 3 decisive questions in one round, then a compact brief whose STEPS assign each subtask to an agent. Skip it for small, clear or follow-up requests.
 - Do it yourself when it is small: about 3 tool calls or fewer, or the needed files are already in context. Delegation has a cold-start cost, so never delegate trivial steps.
 - model-router:reader (Haiku): read-only exploration across several files, searches, summaries of code/logs/docs. Ask for conclusions + file:line only.
 - model-router:coder (Sonnet): implementing a clearly specified change and its tests.

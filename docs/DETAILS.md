@@ -20,11 +20,22 @@ A Claude Code chat can't change its own model halfway through. It can, however, 
 | `model-router:coder` | Sonnet | implementing a clearly specified change and its tests | short report of what changed and what was verified |
 | `model-router:architect` | Opus | design, trade-offs, multi-file plans, hard bugs, security | a decision and a step-by-step plan (it never edits files) |
 
-The policy is injected once when a session starts (and again after `/clear` or compaction). It is about 160 words, not a reminder on every prompt. It covers three rules:
+The policy is injected once when a session starts (and again after `/clear` or compaction). It is about 200 words, not a reminder on every prompt. It covers three rules:
 
 - **Small steps stay in the main session.** Each subagent starts cold, so delegating something tiny costs more than doing it.
 - **Escalate one level on failure** (reader → coder → architect) instead of retrying the same agent.
 - **Briefs and answers stay short.** Agents return conclusions, not file dumps, so the main context stays small.
+
+## The brief step
+
+For medium or large requests (several files or steps) and vague ones, the main session first runs the `model-router:brief` skill. You can also call it yourself: `/model-router:brief <your request>`.
+
+1. **It looks before it asks.** Two or three quick searches answer whatever the code can answer, such as framework, patterns, test command or file locations.
+2. **It asks at most 3 questions, in one round**, and only when the answer changes what gets built or how it is checked: scope, visible behavior, data or API contracts, security, irreversible steps. Each question has a recommended option. Style and naming are decided and listed as assumptions instead. In non-interactive runs it never blocks: it picks the recommended options and lists them.
+3. **It writes a brief of about 12 lines**: GOAL, CONTEXT, CONSTRAINTS, DONE WHEN, OUT OF SCOPE, ASSUMPTIONS, and STEPS, with each step assigned to `self`, `reader`, `coder` or `architect`. The same brief is handed to each agent, so agents don't re-explore.
+4. **Small, clear or follow-up requests skip it entirely.** On large or hard-to-undo tasks with assumptions, it asks "Proceed with this brief?" in the same single round.
+
+**Does it really save money? Honest math.** A brief costs roughly 300–800 extra tokens plus, sometimes, one short round of questions. On Sonnet that is under one US cent. One wrong-direction attempt on a medium task (exploring, editing and testing the wrong thing, then redoing it) typically burns tens of thousands of tokens. So the brief pays for itself if it prevents rework in even a small share of medium tasks, and the DONE WHEN list also stops the "gold-plating" of features nobody asked for. Both effects are plausible but **not yet measured**, so they are not included in the savings chart. In one test on the vague request "make user accounts more secure", the run with the brief listed its assumptions and limited the scope (hashing + validation). The run without it added lockout and a strict password policy nobody asked for. Total cost was similar ($0.15 vs $0.12) on that tiny repository. To measure it on your work, run `extras/measure.sh` with a deliberately vague task.
 
 ## Install
 
@@ -121,6 +132,7 @@ Formula: `routed cost = baseline × (Σ share × relative price) × (1 + overhea
 plugins/model-router/
   .claude-plugin/plugin.json        plugin manifest
   agents/reader.md coder.md architect.md
+  skills/brief/SKILL.md             brief step (questions + compact brief)
   hooks/hooks.json                  SessionStart hook
   hooks/routing-policy.md           the injected policy
 extras/statusline.sh                optional status line

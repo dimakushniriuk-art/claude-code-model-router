@@ -24,7 +24,9 @@ THEMES = {
 
 T = {
     "en": dict(
-        you="You", one_chat="one chat, as usual",
+        you="You", one_chat="one chat",
+        brief="Brief", brief_1="≤3 questions", brief_2="→ clear plan",
+        brief_skip="small task: skipped",
         main="Main session", main_m="Sonnet",
         policy="decides who does each step",
         small="Small step? Done right here",
@@ -46,9 +48,18 @@ T = {
         sav_spend="If you spend on Opus", sav_save="you save about",
         sav_note="Estimate from official API prices ({d}) and stated assumptions. Measure yours: extras/measure.sh",
         per_month="/mo",
+        b_req="Your request", b_req_txt="\u201cmake user accounts more secure\u201d",
+        b_look="1 · Looks in the code first", b_look_txt="finds app/users.py, plaintext passwords",
+        b_ask="2 · Asks only what changes the result", b_q="Scope?", b_opts=["Hashing + validation (Recommended)", "Also 2FA and lockout"],
+        b_brief="3 · Compact brief → split across agents",
+        b_lines=[("GOAL", "hash passwords, validate input"), ("DONE WHEN", "tests pass, no plaintext stored"),
+                 ("OUT OF SCOPE", "2FA, sessions"), ("STEPS", "1 coder: users.py + tests")],
+        b_why="A few hundred tokens up front, so the expensive work runs once on the right target",
     ),
     "it": dict(
-        you="Tu", one_chat="una sola chat, come sempre",
+        you="Tu", one_chat="una sola chat",
+        brief="Brief", brief_1="≤3 domande", brief_2="→ piano chiaro",
+        brief_skip="compito piccolo: saltato",
         main="Sessione principale", main_m="Sonnet",
         policy="decide chi fa ogni passo",
         small="Passo piccolo? Lo fa subito qui",
@@ -70,6 +81,13 @@ T = {
         sav_spend="Se spendi su Opus", sav_save="risparmi circa",
         sav_note="Stima da prezzi API ufficiali ({d}) e ipotesi dichiarate. Misura il tuo: extras/measure.sh",
         per_month="/mese",
+        b_req="La tua richiesta", b_req_txt="\u201crendi più sicuri gli account utente\u201d",
+        b_look="1 · Prima guarda il codice", b_look_txt="trova app/users.py, password in chiaro",
+        b_ask="2 · Chiede solo ciò che cambia il risultato", b_q="Ambito?", b_opts=["Hash + validazione (Consigliato)", "Anche 2FA e blocco"],
+        b_brief="3 · Brief compatto → diviso tra gli agenti",
+        b_lines=[("OBIETTIVO", "hash password, validare input"), ("FATTO QUANDO", "test ok, niente in chiaro"),
+                 ("FUORI AMBITO", "2FA, sessioni"), ("PASSI", "1 coder: users.py + test")],
+        b_why="Poche centinaia di token all'inizio, così il lavoro costoso si fa una volta sola, sull'obiettivo giusto",
     ),
 }
 
@@ -101,26 +119,33 @@ def flow(c, t):
     W, H = 900, 400
     o = head(W, H, c, "How model-router routes work")
     # you
-    o.append(f'<rect x="20" y="150" width="200" height="100" rx="14" fill="{c["card"]}" stroke="{c["line"]}"/>')
-    o.append(text(120, 192, t["you"], 22, c["ink"], 700, "middle"))
-    o.append(text(120, 218, t["one_chat"], 12.5, c["ink2"], 400, "middle"))
-    o.append(f'<line x1="222" y1="200" x2="262" y2="200" stroke="{c["ink2"]}" stroke-width="2" marker-end="url(#a)"/>')
+    o.append(f'<rect x="20" y="150" width="130" height="100" rx="14" fill="{c["card"]}" stroke="{c["line"]}"/>')
+    o.append(text(85, 192, t["you"], 22, c["ink"], 700, "middle"))
+    o.append(text(85, 218, t["one_chat"], 12.5, c["ink2"], 400, "middle"))
+    o.append(f'<line x1="152" y1="200" x2="176" y2="200" stroke="{c["ink2"]}" stroke-width="2" marker-end="url(#a)"/>')
+    # brief
+    o.append(f'<rect x="180" y="150" width="120" height="100" rx="14" fill="{c["card"]}" stroke="{c["accent"]}" stroke-width="2" stroke-dasharray="6 4"/>')
+    o.append(text(240, 184, t["brief"], 17, c["ink"], 700, "middle"))
+    o.append(text(240, 208, t["brief_1"], 12.5, c["ink2"], 400, "middle"))
+    o.append(text(240, 228, t["brief_2"], 12.5, c["ink2"], 400, "middle"))
+    o.append(text(240, 272, t["brief_skip"], 11, c["ink2"], 400, "middle"))
+    o.append(f'<line x1="302" y1="200" x2="324" y2="200" stroke="{c["ink2"]}" stroke-width="2" marker-end="url(#a)"/>')
     # main
-    o.append(f'<rect x="266" y="130" width="230" height="140" rx="14" fill="{c["card"]}" stroke="{c["sonnet"]}" stroke-width="2"/>')
-    o.append(text(381, 172, t["main"], 18, c["ink"], 700, "middle"))
-    o.append(pill(341, 186, 80, 26, c["sonnet"]))
-    o.append(text(381, 204, t["main_m"], 14, "#ffffff", 600, "middle"))
-    o.append(text(381, 240, t["policy"], 13, c["ink2"], 400, "middle"))
+    o.append(f'<rect x="328" y="130" width="196" height="140" rx="14" fill="{c["card"]}" stroke="{c["sonnet"]}" stroke-width="2"/>')
+    o.append(text(426, 172, t["main"], 16, c["ink"], 700, "middle"))
+    o.append(pill(386, 186, 80, 26, c["sonnet"]))
+    o.append(text(426, 204, t["main_m"], 14, "#ffffff", 600, "middle"))
+    o.append(text(426, 240, t["policy"], 12, c["ink2"], 400, "middle"))
     # small step loop
-    o.append(f'<path d="M330,272 C330,330 432,330 432,272" fill="none" stroke="{c["ink2"]}" stroke-width="2" '
+    o.append(f'<path d="M380,272 C380,330 472,330 472,272" fill="none" stroke="{c["ink2"]}" stroke-width="2" '
              f'stroke-dasharray="5 4" marker-end="url(#a)"/>')
-    o.append(text(381, 352, t["small"], 13, c["ink2"], 400, "middle"))
+    o.append(text(426, 352, t["small"], 13, c["ink2"], 400, "middle"))
     # agents
     rows = [("reader", "Haiku", "haiku", t["reader_do"], 50),
             ("coder", "Sonnet", "sonnet", t["coder_do"], 160),
             ("architect", "Opus", "opus", t["arch_do"], 270)]
     for name, model, key, does, y in rows:
-        o.append(f'<path d="M498,200 C560,200 560,{y + 40} 618,{y + 40}" fill="none" stroke="{c[key]}" '
+        o.append(f'<path d="M526,200 C575,200 575,{y + 40} 618,{y + 40}" fill="none" stroke="{c[key]}" '
                  f'stroke-width="2.5" marker-end="url(#a)"/>')
         o.append(f'<rect x="622" y="{y}" width="232" height="80" rx="14" fill="{c["card"]}" stroke="{c["line"]}"/>')
         o.append(f'<rect x="622" y="{y}" width="8" height="80" rx="4" fill="{c[key]}"/>')
@@ -217,11 +242,51 @@ def savings(c, t):
     return "\n".join(o)
 
 
+# --- 5. Brief step -----------------------------------------------------------
+def brief(c, t):
+    W, H = 900, 300
+    o = head(W, H, c, t["b_brief"])
+    # request
+    o.append(text(32, 44, t["b_req"].upper(), 11, c["ink2"], 600))
+    o.append(text(32, 70, t["b_req_txt"], 17, c["ink"], 600))
+    cw, gap, y0 = 276, 18, 96
+    xs = [24 + i * (cw + gap) for i in range(3)]
+    for i, x in enumerate(xs):
+        o.append(f'<rect x="{x}" y="{y0}" width="{cw}" height="160" rx="16" fill="{c["card"]}" stroke="{c["line"]}"/>')
+        if i < 2:
+            o.append(f'<line x1="{x + cw + 2}" y1="{y0 + 80}" x2="{x + cw + gap - 2}" y2="{y0 + 80}" stroke="{c["ink2"]}" stroke-width="2" marker-end="url(#a)"/>')
+    # 1 look
+    x = xs[0]
+    o.append(text(x + 18, y0 + 30, t["b_look"], 14, c["ink"], 700))
+    o.append(f'<rect x="{x + 18}" y="{y0 + 50}" width="{cw - 36}" height="34" rx="8" fill="{c["code"]}"/>')
+    o.append(text(x + 30, y0 + 72, "grep password app/", 12, c["ink"], 400, family=MONO))
+    o.append(text(x + 18, y0 + 112, t["b_look_txt"], 12.5, c["ink2"]))
+    # 2 ask
+    x = xs[1]
+    o.append(text(x + 18, y0 + 30, t["b_ask"], 14 if len(t["b_ask"]) < 34 else 12.5, c["ink"], 700))
+    o.append(text(x + 18, y0 + 58, t["b_q"], 13, c["ink2"], 600))
+    for j, opt in enumerate(t["b_opts"]):
+        yy = y0 + 72 + j * 38
+        stroke = c["accent"] if j == 0 else c["line"]
+        o.append(f'<rect x="{x + 18}" y="{yy}" width="{cw - 36}" height="30" rx="8" fill="{c["bg"]}" stroke="{stroke}" stroke-width="{2 if j == 0 else 1}"/>')
+        o.append(text(x + 28, yy + 20, opt, 11.5, c["ink"], 600 if j == 0 else 400))
+    # 3 brief
+    x = xs[2]
+    o.append(text(x + 18, y0 + 30, t["b_brief"], 13 if len(t["b_brief"]) < 40 else 12, c["ink"], 700))
+    for j, (k, v) in enumerate(t["b_lines"]):
+        yy = y0 + 54 + j * 27
+        o.append(text(x + 18, yy, k, 10.5, c["accent"], 700, family=MONO))
+        o.append(text(x + 18, yy + 13, v, 12, c["ink"]))
+    o.append(text(32, 284, t["b_why"], 13, c["ink2"]))
+    o.append("</svg>")
+    return "\n".join(o)
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     for lang, strings in T.items():
         for theme, colors in THEMES.items():
-            for name, fn in (("flow", flow), ("agents", cards), ("install", install), ("savings", savings)):
+            for name, fn in (("flow", flow), ("agents", cards), ("install", install), ("savings", savings), ("brief", brief)):
                 (OUT / f"{name}-{lang}-{theme}.svg").write_text(fn(colors, strings), encoding="utf-8")
     print(f"wrote {len(list(OUT.glob('*.svg')))} files to {OUT}")
 
