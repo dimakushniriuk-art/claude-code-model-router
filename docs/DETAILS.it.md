@@ -39,20 +39,31 @@ Per richieste medie o grandi (più file o più passi) e per quelle vaghe, la ses
 
 ## Installazione
 
-Serve Claude Code con supporto ai plugin.
+**Windows (PowerShell):**
 
-```bash
-claude plugin marketplace add dimakushniriuk-art/claude-code-model-router
-claude plugin install model-router@model-router
+```powershell
+irm https://raw.githubusercontent.com/dimakushniriuk-art/claude-code-model-router/main/install.ps1 | iex
 ```
 
-Oppure dentro Claude Code: `/plugin marketplace add dimakushniriuk-art/claude-code-model-router` e poi `/plugin install model-router@model-router`.
+**macOS / Linux (Terminale):**
 
-Riavvia Claude Code e lancia `/agents`: devi vedere i tre agenti `model-router:*`.
+```bash
+curl -fsSL https://raw.githubusercontent.com/dimakushniriuk-art/claude-code-model-router/main/install.sh | bash
+```
 
-**Poi imposta Sonnet come modello principale.** Usa `/model sonnet`, oppure aggiungi `"model": "sonnet"` in `~/.claude/settings.json`. È la leva più grande: la conversazione gira su Sonnet, e Opus entra tramite `architect` solo quando il lavoro lo richiede. Se tieni Opus come modello principale, il plugin sposta comunque le letture su Haiku, ma il risparmio stimato scende a circa il 13%.
+Entrambi gli script installano il plugin, impostano Sonnet come modello principale nel tuo `settings.json` utente (prima ne salvano una copia) e installano la status line. Con `MR_SKIP_MODEL=1` o `MR_SKIP_STATUSLINE=1` salti un passo. Nota: lo script PowerShell è stato controllato leggendolo, non eseguito, perché quando è stato scritto non c'era un computer Windows disponibile. Segnala eventuali problemi.
 
-Per provarlo senza installarlo, clona il repository e lancia `claude --plugin-dir ./plugins/model-router`.
+**A mano, dentro Claude Code:** `/plugin marketplace add dimakushniriuk-art/claude-code-model-router`, poi `/plugin install model-router@model-router`, poi `/model sonnet`.
+
+Riavvia Claude Code e scrivi `/agents`: devi vedere `model-router:reader`, `coder` e `architect`.
+
+**Dal cellulare (app Claude → Code), o Claude Code sul web.** Queste sessioni girano nel cloud. La documentazione ufficiale dice che non caricano i plugin installati sul tuo computer, né quelli che un repository attiva in `.claude/settings.json`. Caricano invece `.claude/agents/`, `.claude/skills/` e `CLAUDE.md` del repository. Per questo la modalità progetto copia gli agenti e la skill brief nel tuo repository e aggiunge la policy di routing al suo `CLAUDE.md`. Apri Code nell'app Claude, scegli il tuo repository e invia:
+
+```text
+Installa model-router in questo repo: git clone --depth 1 https://github.com/dimakushniriuk-art/claude-code-model-router /tmp/mr && bash /tmp/mr/install.sh --project, poi fai commit e push.
+```
+
+Le nuove sessioni su quel repository avranno `reader`, `coder`, `architect` e la skill `brief`. Usa `/model sonnet` in una sessione. Lo stesso comando funziona anche dal computer, in qualsiasi repository, se vuoi condividere la configurazione con il team tramite git.
 
 ## Extra opzionali
 
@@ -116,7 +127,7 @@ Formula: `costo con routing = baseline × (Σ quota × prezzo relativo) × (1 + 
 **Cosa la stima non considera.**
 - **Una qualità più bassa ha un costo.** Se Sonnet o Haiku sbagliano e devi rifare il lavoro, il risparmio si riduce. Per questo la policy sale a un modello più forte quando un agente fallisce.
 - **Il contesto che la sessione principale non legge più non è conteggiato.** Aumenterebbe il risparmio, quindi su questo punto la stima è prudente.
-- **Abbonamenti.** Con un piano Pro o Max paghi una quota fissa, quindi il risparmio non ti torna in denaro: si traduce in più lavoro prima di raggiungere i limiti di utilizzo. Le cifre in dollari valgono per la fatturazione API a consumo.
+- **Abbonamenti (Pro 20 $, Max 100 $, Ultra 200 $, Team 25/125 $ a posto).** Paghi una quota fissa, quindi il risparmio non torna in denaro: diventa più lavoro prima di raggiungere i limiti di utilizzo. Anthropic dice che Opus "usa sensibilmente più quota" e "costa diverse volte più di Sonnet per turno", ma non pubblica il rapporto esatto. Ipotizzando che i limiti si consumino in proporzione al prezzo API, e che prima usassi Opus per tutto, lo stesso limite contiene da 1,3× (prudente) a 2,5× (massimo) più lavoro. **Se lavori già su Sonnet, l'intervallo è da 0,7× a 1,3×: il router può consumare più limite se chiama spesso Opus (architect).** L'Enterprise con fatturazione a consumo paga le tariffe API, quindi lì valgono le cifre in dollari. Fonti: [piani](https://claude.com/pricing), [modelli e limiti in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code), verificate il 25/11/2026.
 - **Haiku 5.5 costa 5 volte di più per prompt sopra i 100K token.** Normalmente il reader resta molto al di sotto.
 
 ## Personalizzazione

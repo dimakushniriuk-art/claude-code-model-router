@@ -58,6 +58,29 @@ def savings(spend: float, s: dict) -> float:
     return spend * (1 - routed_factor(s))
 
 
+# --- Subscriptions (Pro / Max / Ultra / Team): same price, more work per limit --
+# Plans and prices: https://claude.com/pricing (checked 2026-11-25).
+# Assumption 3: plan limits are consumed roughly in proportion to API price.
+# Anthropic only says "Opus costs several times more per turn than Sonnet"
+# (support.claude.com, "Models, usage, and limits in Claude Code"); the exact ratio is not published.
+PLANS = [  # name, price label, included usage in "Pro units" (None = not quantified)
+    ("Pro", "$20/mo", 1),
+    ("Max", "$100/mo", 5),
+    ("Ultra", "$200/mo", 10),
+]
+
+
+def work_multiplier(s: dict) -> float:
+    """How much more work fits in the same usage limit (Opus-everything baseline)."""
+    return 1 / routed_factor(s)
+
+
+def sonnet_baseline_multiplier(s: dict) -> float:
+    """Same, for someone who already used Sonnet for everything."""
+    rel_s = {m: REL[m] / REL["sonnet"] for m in PRICES}
+    return 1 / (sum(rel_s[m] * s.get(m, 0) for m in PRICES) * (1 + s["overhead"]))
+
+
 # --- Chart (dependency-free SVG, light + dark) --------------------------------
 THEMES = {
     "light": {"bg": "#ffffff", "ink": "#191919", "ink2": "#666666", "grid": "#e5e5e5",
@@ -132,6 +155,10 @@ def main() -> None:
     for n, s in list(SCENARIOS.items()) + [("Opus main + plugin", OPUS_MAIN)]:
         pct = (1 - routed_factor(s)) * 100
         print(f"| {n} | {pct:.0f}% | " + " | ".join(money(savings(b, s)) for b in BASELINES) + " |")
+    print("\nSubscriptions, more work in the same limit (Opus baseline): " +
+          ", ".join(f"{n} {work_multiplier(s):.2f}x" for n, s in SCENARIOS.items()))
+    print("If you already used Sonnet: " +
+          ", ".join(f"{n} {sonnet_baseline_multiplier(s):.2f}x" for n, s in SCENARIOS.items()))
     if len(sys.argv) > 1:
         b = float(sys.argv[1])
         print(f"\nFor {money(b)}/month: " + ", ".join(f"{n} {money(savings(b, s))}" for n, s in SCENARIOS.items()))

@@ -39,20 +39,31 @@ For medium or large requests (several files or steps) and vague ones, the main s
 
 ## Install
 
-Requires Claude Code with plugin support.
+**Windows (PowerShell):**
 
-```bash
-claude plugin marketplace add dimakushniriuk-art/claude-code-model-router
-claude plugin install model-router@model-router
+```powershell
+irm https://raw.githubusercontent.com/dimakushniriuk-art/claude-code-model-router/main/install.ps1 | iex
 ```
 
-Or inside Claude Code: `/plugin marketplace add dimakushniriuk-art/claude-code-model-router`, then `/plugin install model-router@model-router`.
+**macOS / Linux (Terminal):**
 
-Restart Claude Code and run `/agents`: you should see the three `model-router:*` agents.
+```bash
+curl -fsSL https://raw.githubusercontent.com/dimakushniriuk-art/claude-code-model-router/main/install.sh | bash
+```
 
-**Then set Sonnet as your main model.** Use `/model sonnet`, or put `"model": "sonnet"` in `~/.claude/settings.json`. This is the biggest lever: the conversation runs on Sonnet, and Opus is called in through `architect` only when the work needs it. If you keep Opus as the main model, the plugin still moves reading to Haiku, but the estimated saving drops to about 13%.
+Both scripts install the plugin, set Sonnet as the main model in your user `settings.json` (a backup is saved first) and install the status line. Set `MR_SKIP_MODEL=1` or `MR_SKIP_STATUSLINE=1` to skip a step. Note: the PowerShell script was checked by reading, not executed, because no Windows machine was available when it was written. Please report any problem.
 
-To try it without installing, clone the repo and run `claude --plugin-dir ./plugins/model-router`.
+**By hand, inside Claude Code:** `/plugin marketplace add dimakushniriuk-art/claude-code-model-router`, then `/plugin install model-router@model-router`, then `/model sonnet`.
+
+Restart Claude Code and type `/agents`: you should see `model-router:reader`, `coder` and `architect`.
+
+**From a phone (Claude app → Code), or Claude Code on the web.** These sessions run in the cloud, and the official docs say they don't load plugins installed on your computer, nor plugins a repository enables in `.claude/settings.json`. They do load a repository's `.claude/agents/`, `.claude/skills/` and `CLAUDE.md`. So project mode copies the agents and the brief skill into your repository and adds the routing policy to its `CLAUDE.md`. Open Code in the Claude app, pick your repository and send:
+
+```text
+Install model-router in this repo: git clone --depth 1 https://github.com/dimakushniriuk-art/claude-code-model-router /tmp/mr && bash /tmp/mr/install.sh --project, then commit and push.
+```
+
+New sessions on that repository then have `reader`, `coder`, `architect` and the `brief` skill. Use `/model sonnet` in a session. The same command works on a computer, inside any repository, if you want the setup shared with your team through git.
 
 ## Optional extras
 
@@ -116,7 +127,7 @@ Formula: `routed cost = baseline × (Σ share × relative price) × (1 + overhea
 **What this does not capture.**
 - **Lower quality has a cost.** If Sonnet or Haiku gets something wrong and you redo it, the saving shrinks. The policy escalates to a stronger model on failure for this reason.
 - **Context the main session no longer reads is not counted.** That would increase savings, so the estimate is conservative there.
-- **Subscriptions.** On a Pro or Max plan you pay a flat fee, so the saving is not money back. It shows up as more work before you reach your usage limits. The dollar figures apply to API (pay-as-you-go) billing.
+- **Subscriptions (Pro $20, Max $100, Ultra $200, Team $25/$125 per seat).** You pay a flat fee, so the saving is not money back: it shows up as more work before you reach your usage limits. Anthropic says Opus "uses meaningfully more of your quota" and "costs several times more per turn than Sonnet", but does not publish the exact ratio. Assuming limits are used up in proportion to API price, and that you used Opus for everything before, the same limit fits 1.3× (cautious) to 2.5× (upper end) more work. **If you already work on Sonnet, the range is 0.7× to 1.3×: the router can use more of your limit if it calls Opus (architect) often.** Enterprise with usage-based billing pays API rates, so the dollar figures apply there. Sources: [plans](https://claude.com/pricing), [models and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code), checked 2026-11-25.
 - **Haiku 5.5 costs 5× more for prompts above 100K tokens.** The reader agent normally stays far below that.
 
 ## Customize
@@ -135,7 +146,8 @@ plugins/model-router/
   skills/brief/SKILL.md             brief step (questions + compact brief)
   hooks/hooks.json                  SessionStart hook
   hooks/routing-policy.md           the injected policy
-extras/statusline.sh                optional status line
+install.ps1 / install.sh            one-line installers (install.sh --project for phone/web)
+extras/statusline.sh / .ps1         optional status line (bash / PowerShell)
 extras/measure.sh                   A/B cost measurement
 extras/CLAUDE.md-snippet.md         optional CLAUDE.md rules
 tools/estimate.py                   savings model + chart generator

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="350" viewBox="0 0 900 350" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" role="img" aria-label="Abbonamenti: stesso prezzo, fino a 2.5× più lavoro prima dei limiti">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5f6368"/></marker></defs>
+<rect width="900" height="350" rx="16" fill="#ffffff"/>
+<text x="32" y="48" font-size="19" font-weight="700" fill="#191919" text-anchor="start">Abbonamenti: stesso prezzo, fino a 2.5× più lavoro prima dei limiti</text>
+<rect x="32" y="64" width="14" height="12" rx="3" fill="#c9ccd1"/>
+<text x="52" y="75" font-size="12.5" font-weight="400" fill="#5f6368" text-anchor="start">oggi</text>
+<rect x="120" y="64" width="14" height="12" rx="3" fill="#00a383"/>
+<text x="140" y="75" font-size="12.5" font-weight="400" fill="#5f6368" text-anchor="start">con model-router (fino a)</text>
+<text x="32" y="118" font-size="18" font-weight="700" fill="#191919" text-anchor="start">Pro</text>
+<text x="32" y="138" font-size="12.5" font-weight="400" fill="#5f6368" text-anchor="start">$20/mo</text>
+<rect x="200" y="106" width="52.0" height="28" rx="6" fill="#00a383"/>
+<rect x="200" y="106" width="20.6" height="28" rx="6" fill="#c9ccd1"/>
+<text x="262.0" y="126" font-size="14" font-weight="600" fill="#191919" text-anchor="start">1× → 2.5×</text>
+<text x="32" y="176" font-size="18" font-weight="700" fill="#191919" text-anchor="start">Max</text>
+<text x="32" y="196" font-size="12.5" font-weight="400" fill="#5f6368" text-anchor="start">$100/mo</text>
+<rect x="200" y="164" width="260.0" height="28" rx="6" fill="#00a383"/>
+<rect x="200" y="164" width="102.8" height="28" rx="6" fill="#c9ccd1"/>
+<text x="470.0" y="184" font-size="14" font-weight="600" fill="#191919" text-anchor="start">5× → 12.6×</text>
+<text x="32" y="234" font-size="18" font-weight="700" fill="#191919" text-anchor="start">Ultra</text>
+<text x="32" y="254" font-size="12.5" font-weight="400" fill="#5f6368" text-anchor="start">$200/mo · settimanale</text>
+<rect x="200" y="222" width="520.0" height="28" rx="6" fill="#00a383"/>
+<rect x="200" y="222" width="205.6" height="28" rx="6" fill="#c9ccd1"/>
+<text x="730.0" y="242" font-size="14" font-weight="600" fill="#191919" text-anchor="start">10× → 25.3×</text>
+<text x="32" y="290" font-size="13" font-weight="600" fill="#191919" text-anchor="start">Team (Standard 25 $ · Premium 125 $ a posto): stesso fino a 2.5× per posto</text>
+<text x="32" y="314" font-size="11.5" font-weight="400" fill="#5f6368" text-anchor="start">Ipotesi: i limiti si consumano in proporzione al prezzo API (Anthropic: “Opus costa diverse volte più di Sonnet per turno”)</text>
+<text x="32" y="332" font-size="11.5" font-weight="400" fill="#5f6368" text-anchor="start">e prima usavi Opus per tutto. Usi già Sonnet? Da 0.7× a 1.3×: può costare di più se Opus viene chiamato spesso.</text>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="330" viewBox="0 0 900 330" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" role="img" aria-label="Fino al 60% in meno">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9c9c9c"/></marker></defs>
+<rect width="900" height="330" rx="16" fill="#0d1117"/>
+<text x="32" y="92" font-size="52" font-weight="800" fill="#e76624" text-anchor="start">Fino al 60% in meno</text>
+<text x="34" y="122" font-size="14" font-weight="400" fill="#9c9c9c" text-anchor="start">massimo stimato · fatturazione API ed Enterprise a consumo</text>
+<text x="32" y="158" font-size="15" font-weight="700" fill="#efefef" text-anchor="start">A consumo (API, Enterprise a consumo): conto più basso</text>
+<rect x="24" y="176" width="276" height="104" rx="14" fill="#161b22" stroke="#30363d"/>
+<text x="42" y="202" font-size="12.5" font-weight="400" fill="#9c9c9c" text-anchor="start">Spesa su Opus oggi</text>
+<text x="42" y="226" font-size="20" font-weight="700" fill="#efefef" text-anchor="start">$100/mese</text>
+<text x="282" y="202" font-size="12.5" font-weight="400" fill="#9c9c9c" text-anchor="end">risparmi fino a</text>
+<text x="282" y="266" font-size="34" font-weight="800" fill="#e76624" text-anchor="end">$60</text>
+<rect x="42" y="252" width="47.5" height="12" rx="6" fill="#3a4048"/>
+<rect x="91.5" y="252" width="70.5" height="12" rx="6" fill="#e76624"/>
+<rect x="318" y="176" width="276" height="104" rx="14" fill="#161b22" stroke="#30363d"/>
+<text x="336" y="202" font-size="12.5" font-weight="400" fill="#9c9c9c" text-anchor="start">Spesa su Opus oggi</text>
+<text x="336" y="226" font-size="20" font-weight="700" fill="#efefef" text-anchor="start">$300/mese</text>
+<text x="576" y="202" font-size="12.5" font-weight="400" fill="#9c9c9c" text-anchor="end">risparmi fino a</text>
+<text x="576" y="266" font-size="34" font-weight="800" fill="#e76624" text-anchor="end">$181</text>
+<rect x="336" y="252" width="47.5" height="12" rx="6" fill="#3a4048"/>
+<rect x="385.5" y="252" width="70.5" height="12" rx="6" fill="#e76624"/>
+<rect x="612" y="176" width="276" height="104" rx="14" fill="#161b22" stroke="#30363d"/>
+<text x="630" y="202" font-size="12.5" font-weight="400" fill="#9c9c9c" text-anchor="start">Spesa su Opus oggi</text>
+<text x="630" y="226" font-size="20" font-weight="700" fill="#efefef" text-anchor="start">$1,000/mese</text>
+<text x="870" y="202" font-size="12.5" font-weight="400" fill="#9c9c9c" text-anchor="end">risparmi fino a</text>
+<text x="870" y="266" font-size="34" font-weight="800" fill="#e76624" text-anchor="end">$605</text>
+<rect x="630" y="252" width="47.5" height="12" rx="6" fill="#3a4048"/>
+<rect x="679.5" y="252" width="70.5" height="12" rx="6" fill="#e76624"/>
+<text x="32" y="308" font-size="12" font-weight="400" fill="#9c9c9c" text-anchor="start">Stima, non garanzia: prudente 25% · massimo 60%. Prezzi API ufficiali del 2026-11-25. Misura il tuo: extras/measure.sh</text>
+</svg>
