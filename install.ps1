@@ -10,6 +10,9 @@
 # A backup of settings.json is written next to it before any change.
 # Opt out of steps 2 or 3 by setting $env:MR_SKIP_MODEL = "1" or $env:MR_SKIP_STATUSLINE = "1" first.
 
+# Everything runs inside a script block so that, with "irm | iex", the variables,
+# functions and $ErrorActionPreference do not leak into the caller's session.
+& {
 $ErrorActionPreference = "Stop"
 $repo = "dimakushniriuk-art/claude-code-model-router"
 $raw  = "https://raw.githubusercontent.com/$repo/main"
@@ -84,3 +87,4 @@ if ($changed) { Write-Settings $settings; Say "     Saved $settingsPath (backup 
 
 Say ""
 Say "Done. Restart Claude Code, then type /agents to see model-router:reader, coder and architect." "Green"
+}
