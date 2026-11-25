@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- README is now visual: routing flow, agent cards, install steps and savings at a glance (EN/IT, light/dark). Long text moved to `docs/DETAILS.md`.
+
 ## 1.0.0 (2026-11-25)
 
 - First release: `reader` (Haiku), `coder` (Sonnet) and `architect` (Opus) subagents.

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" role="img" aria-label="The three agents">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5f6368"/></marker></defs>
+<rect width="900" height="300" rx="16" fill="#ffffff"/>
+<rect x="24" y="20" width="276" height="260" rx="16" fill="#f6f7f9" stroke="#d9dce1"/>
+<rect x="24" y="20" width="276" height="8" rx="4" fill="#257de0"/>
+<text x="44" y="64" font-size="22" font-weight="700" fill="#191919" text-anchor="start">reader</text>
+<rect x="204" y="44" width="76" height="26" rx="13.0" fill="#257de0"/>
+<text x="242" y="62" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">Haiku</text>
+<text x="44" y="96" font-size="11" font-weight="600" fill="#5f6368" text-anchor="start">DOES</text>
+<circle cx="50" cy="115" r="3.5" fill="#257de0"/>
+<text x="62" y="120" font-size="14" font-weight="400" fill="#191919" text-anchor="start">Finds code</text>
+<circle cx="50" cy="139" r="3.5" fill="#257de0"/>
+<text x="62" y="144" font-size="14" font-weight="400" fill="#191919" text-anchor="start">Traces flows</text>
+<circle cx="50" cy="163" r="3.5" fill="#257de0"/>
+<text x="62" y="168" font-size="14" font-weight="400" fill="#191919" text-anchor="start">Summarizes files &amp; logs</text>
+<line x1="44" x2="280" y1="202" y2="202" stroke="#d9dce1"/>
+<text x="44" y="226" font-size="11" font-weight="600" fill="#5f6368" text-anchor="start">RETURNS</text>
+<text x="44" y="248" font-size="14" font-weight="400" fill="#191919" text-anchor="start">Answer + file:line</text>
+<text x="280" y="226" font-size="11" font-weight="600" fill="#5f6368" text-anchor="end">PRICE VS OPUS</text>
+<text x="280" y="256" font-size="24" font-weight="700" fill="#257de0" text-anchor="end">≈3%</text>
+<rect x="318" y="20" width="276" height="260" rx="16" fill="#f6f7f9" stroke="#d9dce1"/>
+<rect x="318" y="20" width="276" height="8" rx="4" fill="#00a383"/>
+<text x="338" y="64" font-size="22" font-weight="700" fill="#191919" text-anchor="start">coder</text>
+<rect x="498" y="44" width="76" height="26" rx="13.0" fill="#00a383"/>
+<text x="536" y="62" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">Sonnet</text>
+<text x="338" y="96" font-size="11" font-weight="600" fill="#5f6368" text-anchor="start">DOES</text>
+<circle cx="344" cy="115" r="3.5" fill="#00a383"/>
+<text x="356" y="120" font-size="14" font-weight="400" fill="#191919" text-anchor="start">Implements changes</text>
+<circle cx="344" cy="139" r="3.5" fill="#00a383"/>
+<text x="356" y="144" font-size="14" font-weight="400" fill="#191919" text-anchor="start">Writes tests</text>
+<circle cx="344" cy="163" r="3.5" fill="#00a383"/>
+<text x="356" y="168" font-size="14" font-weight="400" fill="#191919" text-anchor="start">Runs checks</text>
+<line x1="338" x2="574" y1="202" y2="202" stroke="#d9dce1"/>
+<text x="338" y="226" font-size="11" font-weight="600" fill="#5f6368" text-anchor="start">RETURNS</text>
+<text x="338" y="248" font-size="14" font-weight="400" fill="#191919" text-anchor="start">What changed + tests</text>
+<text x="574" y="226" font-size="11" font-weight="600" fill="#5f6368" text-anchor="end">PRICE VS OPUS</text>
+<text x="574" y="256" font-size="24" font-weight="700" fill="#00a383" text-anchor="end">50%</text>
+<rect x="612" y="20" width="276" height="260" rx="16" fill="#f6f7f9" stroke="#d9dce1"/>
+<rect x="612" y="20" width="276" height="8" rx="4" fill="#6a4ce2"/>
+<text x="632" y="64" font-size="22" font-weight="700" fill="#191919" text-anchor="start">architect</text>
+<rect x="792" y="44" width="76" height="26" rx="13.0" fill="#6a4ce2"/>
+<text x="830" y="62" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">Opus</text>
+<text x="632" y="96" font-size="11" font-weight="600" fill="#5f6368" text-anchor="start">DOES</text>
+<circle cx="638" cy="115" r="3.5" fill="#6a4ce2"/>
+<text x="650" y="120" font-size="14" font-weight="400" fill="#191919" text-anchor="start">Designs &amp; plans</text>
+<circle cx="638" cy="139" r="3.5" fill="#6a4ce2"/>
+<text x="650" y="144" font-size="14" font-weight="400" fill="#191919" text-anchor="start">Root-causes hard bugs</text>
+<circle cx="638" cy="163" r="3.5" fill="#6a4ce2"/>
+<text x="650" y="168" font-size="14" font-weight="400" fill="#191919" text-anchor="start">Security review</text>
+<line x1="632" x2="868" y1="202" y2="202" stroke="#d9dce1"/>
+<text x="632" y="226" font-size="11" font-weight="600" fill="#5f6368" text-anchor="start">RETURNS</text>
+<text x="632" y="248" font-size="14" font-weight="400" fill="#191919" text-anchor="start">Decision + plan</text>
+<text x="868" y="226" font-size="11" font-weight="600" fill="#5f6368" text-anchor="end">PRICE VS OPUS</text>
+<text x="868" y="256" font-size="24" font-weight="700" fill="#6a4ce2" text-anchor="end">100%</text>
+</svg>

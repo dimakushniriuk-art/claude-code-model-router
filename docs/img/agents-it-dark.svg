@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" role="img" aria-label="The three agents">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9c9c9c"/></marker></defs>
+<rect width="900" height="300" rx="16" fill="#0d1117"/>
+<rect x="24" y="20" width="276" height="260" rx="16" fill="#161b22" stroke="#30363d"/>
+<rect x="24" y="20" width="276" height="8" rx="4" fill="#338ced"/>
+<text x="44" y="64" font-size="22" font-weight="700" fill="#efefef" text-anchor="start">reader</text>
+<rect x="204" y="44" width="76" height="26" rx="13.0" fill="#338ced"/>
+<text x="242" y="62" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">Haiku</text>
+<text x="44" y="96" font-size="11" font-weight="600" fill="#9c9c9c" text-anchor="start">FA</text>
+<circle cx="50" cy="115" r="3.5" fill="#338ced"/>
+<text x="62" y="120" font-size="14" font-weight="400" fill="#efefef" text-anchor="start">Trova il codice</text>
+<circle cx="50" cy="139" r="3.5" fill="#338ced"/>
+<text x="62" y="144" font-size="14" font-weight="400" fill="#efefef" text-anchor="start">Segue i flussi</text>
+<circle cx="50" cy="163" r="3.5" fill="#338ced"/>
+<text x="62" y="168" font-size="14" font-weight="400" fill="#efefef" text-anchor="start">Riassume file e log</text>
+<line x1="44" x2="280" y1="202" y2="202" stroke="#30363d"/>
+<text x="44" y="226" font-size="11" font-weight="600" fill="#9c9c9c" text-anchor="start">RESTITUISCE</text>
+<text x="44" y="248" font-size="14" font-weight="400" fill="#efefef" text-anchor="start">Risposta + file:riga</text>
+<text x="280" y="226" font-size="11" font-weight="600" fill="#9c9c9c" text-anchor="end">PREZZO VS OPUS</text>
+<text x="280" y="256" font-size="24" font-weight="700" fill="#338ced" text-anchor="end">≈3%</text>
+<rect x="318" y="20" width="276" height="260" rx="16" fill="#161b22" stroke="#30363d"/>
+<rect x="318" y="20" width="276" height="8" rx="4" fill="#00a888"/>
+<text x="338" y="64" font-size="22" font-weight="700" fill="#efefef" text-anchor="start">coder</text>
+<rect x="498" y="44" width="76" height="26" rx="13.0" fill="#00a888"/>
+<text x="536" y="62" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">Sonnet</text>
+<text x="338" y="96" font-size="11" font-weight="600" fill="#9c9c9c" text-anchor="start">FA</text>
+<circle cx="344" cy="115" r="3.5" fill="#00a888"/>
+<text x="356" y="120" font-size="14" font-weight="400" fill="#efefef" text-anchor="start">Implementa modifiche</text>
+<circle cx="344" cy="139" r="3.5" fill="#00a888"/>
+<text x="356" y="144" font-size="14" font-weight="400" fill="#efefef" text-anchor="start">Scrive i test</text>
+<circle cx="344" cy="163" r="3.5" fill="#00a888"/>
+<text x="356" y="168" font-size="14" font-weight="400" fill="#efefef" text-anchor="start">Lancia i controlli</text>
+<line x1="338" x2="574" y1="202" y2="202" stroke="#30363d"/>
+<text x="338" y="226" font-size="11" font-weight="600" fill="#9c9c9c" text-anchor="start">RESTITUISCE</text>
+<text x="338" y="248" font-size="14" font-weight="400" fill="#efefef" text-anchor="start">Modifiche + test</text>
+<text x="574" y="226" font-size="11" font-weight="600" fill="#9c9c9c" text-anchor="end">PREZZO VS OPUS</text>
+<text x="574" y="256" font-size="24" font-weight="700" fill="#00a888" text-anchor="end">50%</text>
+<rect x="612" y="20" width="276" height="260" rx="16" fill="#161b22" stroke="#30363d"/>
+<rect x="612" y="20" width="276" height="8" rx="4" fill="#9887ef"/>
+<text x="632" y="64" font-size="22" font-weight="700" fill="#efefef" text-anchor="start">architect</text>
+<rect x="792" y="44" width="76" height="26" rx="13.0" fill="#9887ef"/>
+<text x="830" y="62" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">Opus</text>
+<text x="632" y="96" font-size="11" font-weight="600" fill="#9c9c9c" text-anchor="start">FA</text>
+<circle cx="638" cy="115" r="3.5" fill="#9887ef"/>
+<text x="650" y="120" font-size="14" font-weight="400" fill="#efefef" text-anchor="start">Progetta e pianifica</text>
+<circle cx="638" cy="139" r="3.5" fill="#9887ef"/>
+<text x="650" y="144" font-size="14" font-weight="400" fill="#efefef" text-anchor="start">Trova la causa dei bug</text>
+<circle cx="638" cy="163" r="3.5" fill="#9887ef"/>
+<text x="650" y="168" font-size="14" font-weight="400" fill="#efefef" text-anchor="start">Revisione sicurezza</text>
+<line x1="632" x2="868" y1="202" y2="202" stroke="#30363d"/>
+<text x="632" y="226" font-size="11" font-weight="600" fill="#9c9c9c" text-anchor="start">RESTITUISCE</text>
+<text x="632" y="248" font-size="14" font-weight="400" fill="#efefef" text-anchor="start">Decisione + piano</text>
+<text x="868" y="226" font-size="11" font-weight="600" fill="#9c9c9c" text-anchor="end">PREZZO VS OPUS</text>
+<text x="868" y="256" font-size="24" font-weight="700" fill="#9887ef" text-anchor="end">100%</text>
+</svg>

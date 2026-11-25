@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400" viewBox="0 0 900 400" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" role="img" aria-label="How model-router routes work">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5f6368"/></marker></defs>
+<rect width="900" height="400" rx="16" fill="#ffffff"/>
+<rect x="20" y="150" width="200" height="100" rx="14" fill="#f6f7f9" stroke="#d9dce1"/>
+<text x="120" y="192" font-size="22" font-weight="700" fill="#191919" text-anchor="middle">You</text>
+<text x="120" y="218" font-size="12.5" font-weight="400" fill="#5f6368" text-anchor="middle">one chat, as usual</text>
+<line x1="222" y1="200" x2="262" y2="200" stroke="#5f6368" stroke-width="2" marker-end="url(#a)"/>
+<rect x="266" y="130" width="230" height="140" rx="14" fill="#f6f7f9" stroke="#00a383" stroke-width="2"/>
+<text x="381" y="172" font-size="18" font-weight="700" fill="#191919" text-anchor="middle">Main session</text>
+<rect x="341" y="186" width="80" height="26" rx="13.0" fill="#00a383"/>
+<text x="381" y="204" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">Sonnet</text>
+<text x="381" y="240" font-size="13" font-weight="400" fill="#5f6368" text-anchor="middle">decides who does each step</text>
+<path d="M330,272 C330,330 432,330 432,272" fill="none" stroke="#5f6368" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#a)"/>
+<text x="381" y="352" font-size="13" font-weight="400" fill="#5f6368" text-anchor="middle">Small step? Done right here</text>
+<path d="M498,200 C560,200 560,90 618,90" fill="none" stroke="#257de0" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="622" y="50" width="232" height="80" rx="14" fill="#f6f7f9" stroke="#d9dce1"/>
+<rect x="622" y="50" width="8" height="80" rx="4" fill="#257de0"/>
+<text x="646" y="82" font-size="18" font-weight="700" fill="#191919" text-anchor="start">reader</text>
+<rect x="766" y="64" width="76" height="24" rx="12.0" fill="#257de0"/>
+<text x="804" y="81" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">Haiku</text>
+<text x="646" y="110" font-size="14" font-weight="400" fill="#5f6368" text-anchor="start">Reads &amp; searches</text>
+<path d="M498,200 C560,200 560,200 618,200" fill="none" stroke="#00a383" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="622" y="160" width="232" height="80" rx="14" fill="#f6f7f9" stroke="#d9dce1"/>
+<rect x="622" y="160" width="8" height="80" rx="4" fill="#00a383"/>
+<text x="646" y="192" font-size="18" font-weight="700" fill="#191919" text-anchor="start">coder</text>
+<rect x="766" y="174" width="76" height="24" rx="12.0" fill="#00a383"/>
+<text x="804" y="191" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">Sonnet</text>
+<text x="646" y="220" font-size="14" font-weight="400" fill="#5f6368" text-anchor="start">Writes code</text>
+<path d="M498,200 C560,200 560,310 618,310" fill="none" stroke="#6a4ce2" stroke-width="2.5" marker-end="url(#a)"/>
+<rect x="622" y="270" width="232" height="80" rx="14" fill="#f6f7f9" stroke="#d9dce1"/>
+<rect x="622" y="270" width="8" height="80" rx="4" fill="#6a4ce2"/>
+<text x="646" y="302" font-size="18" font-weight="700" fill="#191919" text-anchor="start">architect</text>
+<rect x="766" y="284" width="76" height="24" rx="12.0" fill="#6a4ce2"/>
+<text x="804" y="301" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">Opus</text>
+<text x="646" y="330" font-size="14" font-weight="400" fill="#5f6368" text-anchor="start">Plans &amp; hard bugs</text>
+<line x1="868" y1="96" x2="868" y2="296" stroke="#f47230" stroke-width="2" marker-end="url(#a)"/>
+<text x="0" y="0" font-size="12" fill="#f47230" text-anchor="middle" transform="translate(888,196) rotate(-90)" font-weight="600">Not good enough? Next level up</text>
+</svg>
