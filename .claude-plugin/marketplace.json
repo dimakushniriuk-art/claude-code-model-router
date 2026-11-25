@@ -1,0 +1,14 @@
+{
+  "name": "model-router",
+  "owner": { "name": "dimakushniriuk-art" },
+  "description": "Cost-aware model routing for Claude Code",
+  "plugins": [
+    {
+      "name": "model-router",
+      "source": "./plugins/model-router",
+      "description": "Route subtasks to the cheapest model that keeps quality: Haiku reads, Sonnet codes, Opus plans.",
+      "category": "productivity",
+      "tags": ["cost", "tokens", "subagents", "routing"]
+    }
+  ]
+}

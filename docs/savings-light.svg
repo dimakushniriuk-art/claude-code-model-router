@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" role="img" aria-label="Estimated monthly savings with model-router">
+<rect width="760" height="420" fill="#ffffff"/>
+<text x="70" y="30" font-size="18" font-weight="600" fill="#191919">Estimated monthly savings</text>
+<text x="70" y="52" font-size="13" fill="#666666">Main session on Sonnet + plugin vs. everything on Opus. An estimate, not a measurement.</text>
+<rect x="70" y="68" width="12" height="12" rx="3" fill="#257de0"/>
+<text x="88" y="78.5" font-size="13" fill="#666666">Conservative (−25%)</text>
+<rect x="250.6" y="68" width="12" height="12" rx="3" fill="#f47230"/>
+<text x="268.6" y="78.5" font-size="13" fill="#666666">Expected (−47%)</text>
+<rect x="401.6" y="68" width="12" height="12" rx="3" fill="#00b894"/>
+<text x="419.6" y="78.5" font-size="13" fill="#666666">Optimistic (−60%)</text>
+<line x1="70" x2="740" y1="364.0" y2="364.0" stroke="#e5e5e5" stroke-width="1"/>
+<text x="62" y="368.0" font-size="12" text-anchor="end" fill="#666666">$0</text>
+<line x1="70" x2="740" y1="325.7" y2="325.7" stroke="#e5e5e5" stroke-width="1"/>
+<text x="62" y="329.7" font-size="12" text-anchor="end" fill="#666666">$100</text>
+<line x1="70" x2="740" y1="287.4" y2="287.4" stroke="#e5e5e5" stroke-width="1"/>
+<text x="62" y="291.4" font-size="12" text-anchor="end" fill="#666666">$200</text>
+<line x1="70" x2="740" y1="249.1" y2="249.1" stroke="#e5e5e5" stroke-width="1"/>
+<text x="62" y="253.1" font-size="12" text-anchor="end" fill="#666666">$300</text>
+<line x1="70" x2="740" y1="210.9" y2="210.9" stroke="#e5e5e5" stroke-width="1"/>
+<text x="62" y="214.9" font-size="12" text-anchor="end" fill="#666666">$400</text>
+<line x1="70" x2="740" y1="172.6" y2="172.6" stroke="#e5e5e5" stroke-width="1"/>
+<text x="62" y="176.6" font-size="12" text-anchor="end" fill="#666666">$500</text>
+<line x1="70" x2="740" y1="134.3" y2="134.3" stroke="#e5e5e5" stroke-width="1"/>
+<text x="62" y="138.3" font-size="12" text-anchor="end" fill="#666666">$600</text>
+<line x1="70" x2="740" y1="96.0" y2="96.0" stroke="#e5e5e5" stroke-width="1"/>
+<text x="62" y="100.0" font-size="12" text-anchor="end" fill="#666666">$700</text>
+<path d="M110.7,364.0 V358.6 Q110.7,354.6 114.7,354.6 H152.7 Q156.7,354.6 156.7,358.6 V364.0 Z" fill="#257de0"><title>Conservative: save $25/month of $100 (pay $75)</title></path>
+<text x="133.7" y="348.6" font-size="12" text-anchor="middle" fill="#191919">$25</text>
+<path d="M158.7,364.0 V349.8 Q158.7,345.8 162.7,345.8 H200.7 Q204.7,345.8 204.7,349.8 V364.0 Z" fill="#f47230"><title>Expected: save $47/month of $100 (pay $53)</title></path>
+<text x="181.7" y="339.8" font-size="12" text-anchor="middle" fill="#191919">$47</text>
+<path d="M206.7,364.0 V344.9 Q206.7,340.9 210.7,340.9 H248.7 Q252.7,340.9 252.7,344.9 V364.0 Z" fill="#00b894"><title>Optimistic: save $60/month of $100 (pay $40)</title></path>
+<text x="229.7" y="334.9" font-size="12" text-anchor="middle" fill="#191919">$60</text>
+<text x="181.7" y="386.0" font-size="13" text-anchor="middle" fill="#191919">$100/month on Opus</text>
+<path d="M334.0,364.0 V339.7 Q334.0,335.7 338.0,335.7 H376.0 Q380.0,335.7 380.0,339.7 V364.0 Z" fill="#257de0"><title>Conservative: save $74/month of $300 (pay $226)</title></path>
+<text x="357.0" y="329.7" font-size="12" text-anchor="middle" fill="#191919">$74</text>
+<path d="M382.0,364.0 V313.5 Q382.0,309.5 386.0,309.5 H424.0 Q428.0,309.5 428.0,313.5 V364.0 Z" fill="#f47230"><title>Expected: save $142/month of $300 (pay $158)</title></path>
+<text x="405.0" y="303.5" font-size="12" text-anchor="middle" fill="#191919">$142</text>
+<path d="M430.0,364.0 V298.6 Q430.0,294.6 434.0,294.6 H472.0 Q476.0,294.6 476.0,298.6 V364.0 Z" fill="#00b894"><title>Optimistic: save $181/month of $300 (pay $119)</title></path>
+<text x="453.0" y="288.6" font-size="12" text-anchor="middle" fill="#191919">$181</text>
+<text x="405.0" y="386.0" font-size="13" text-anchor="middle" fill="#191919">$300/month on Opus</text>
+<path d="M557.3,364.0 V273.6 Q557.3,269.6 561.3,269.6 H599.3 Q603.3,269.6 603.3,273.6 V364.0 Z" fill="#257de0"><title>Conservative: save $247/month of $1,000 (pay $753)</title></path>
+<text x="580.3" y="263.6" font-size="12" text-anchor="middle" fill="#191919">$247</text>
+<path d="M605.3,364.0 V186.3 Q605.3,182.3 609.3,182.3 H647.3 Q651.3,182.3 651.3,186.3 V364.0 Z" fill="#f47230"><title>Expected: save $475/month of $1,000 (pay $525)</title></path>
+<text x="628.3" y="176.3" font-size="12" text-anchor="middle" fill="#191919">$475</text>
+<path d="M653.3,364.0 V136.6 Q653.3,132.6 657.3,132.6 H695.3 Q699.3,132.6 699.3,136.6 V364.0 Z" fill="#00b894"><title>Optimistic: save $605/month of $1,000 (pay $395)</title></path>
+<text x="676.3" y="126.6" font-size="12" text-anchor="middle" fill="#191919">$605</text>
+<text x="628.3" y="386.0" font-size="13" text-anchor="middle" fill="#191919">$1,000/month on Opus</text>
+<line x1="70" x2="740" y1="364.0" y2="364.0" stroke="#666666" stroke-width="1"/>
+<text x="70" y="410" font-size="11" fill="#666666">Assumptions and formula: tools/estimate.py. API prices of 2026-11-25. Measure your own work with extras/measure.sh.</text>
+</svg>

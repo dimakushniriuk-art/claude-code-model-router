@@ -1,0 +1,13 @@
+{
+  "description": "Inietta una breve policy di delega a inizio sessione e dopo /clear o compattazione.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          { "type": "command", "command": "cat \"${CLAUDE_PLUGIN_ROOT}/hooks/routing-policy.md\"", "timeout": 5 }
+        ]
+      }
+    ]
+  }
+}

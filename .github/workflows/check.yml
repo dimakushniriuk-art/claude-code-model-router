@@ -1,0 +1,17 @@
+name: check
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: JSON manifests are valid
+        run: for f in .claude-plugin/marketplace.json plugins/model-router/.claude-plugin/plugin.json plugins/model-router/hooks/hooks.json; do jq empty "$f"; done
+      - name: Shell scripts parse
+        run: bash -n extras/measure.sh && bash -n extras/statusline.sh
+      - name: Status line renders sample input
+        run: echo '{"model":{"display_name":"Sonnet"},"cost":{"total_cost_usd":0.5},"context_window":{"used_percentage":12}}' | bash extras/statusline.sh
+      - name: Chart is up to date with the estimator
+        run: python3 tools/estimate.py && git diff --exit-code docs/
